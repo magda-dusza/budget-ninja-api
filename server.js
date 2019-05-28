@@ -19,6 +19,10 @@ app.use("/users", require("./users/users.controller"));
 // global error handler
 app.use(errorHandler);
 
+app.get('/alive', (request, response) => {
+  response.send('Hello from Express!')
+})
+
 // start server
 const port = process.env.PORT || 4000; 
 const server = app.listen(port, function() {
