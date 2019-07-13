@@ -73,12 +73,12 @@ function handleError(res, reason, message, code) {
  *    POST: creates a new contact
  */
 
-app.get("/api/contacts", function(req, res) {
+app.get("/test", function(req, res) {
   db.collection(CONTACTS_COLLECTION).find({}).toArray(function(err, docs) {
     if (err) {
-      handleError(res, err.message, "Failed to get contacts.");
+      handleError(res, err.message, "Failed to connect");
     } else {
-      res.status(200).json(docs);
+      res.status(200).json('is alive');
     }
   });
 });
