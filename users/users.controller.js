@@ -1,5 +1,5 @@
 const express = require("express");
-// const router = express.Router();
+const router = express.Router();
 // const userService = require("./users.service");
 
 // // routes
@@ -10,8 +10,11 @@ const express = require("express");
 // router.get("/:id", getById);
 // router.put("/:id", update);
 // router.delete("/:id", _delete);
+router.get("/test", function(req, res) {
+  res.status(200).json('is alive');
+});
 
-// module.exports = router;
+module.exports = router;
 
 // function authenticate(req, res, next) {
 //   userService
@@ -65,7 +68,3 @@ const express = require("express");
 //     .then(() => res.json({}))
 //     .catch(err => next(err));
 // }
-
-app.get("/test", function(req, res) {
-  res.status(200).json('is alive');
-});
