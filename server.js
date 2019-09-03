@@ -20,7 +20,12 @@ app.use(jwt());
 app.use("/users", require("./users/users.controller"));
 app.use(errorHandler);
 
-
+app.use(function(req, res, next){
+  res.header('Access-Control-Allow-Origin', "*");
+  res.header('Access-Control-Allow-Methods', "GET, PUT, POST, DELETE");
+  res.header('Access-Control-Allow-Headers', "Content-Type");
+  next();
+});
 // Create a database variable outside of the database connection callback to reuse the connection pool in your app.
 var db;
 
